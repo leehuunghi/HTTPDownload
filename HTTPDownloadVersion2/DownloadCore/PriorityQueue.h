@@ -1,37 +1,30 @@
 //
 //  PriorityQueue.h
-//  DownloadCore
+//  HTTPDownload
 //
-//  Created by CPU11829 on 8/8/18.
-//  Copyright © 2018 CPU11829. All rights reserved.
+//  Created by CPU11360 on 8/2/18.
+//  Copyright © 2018 CPU11367. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-
-typedef enum {
-    High,
-    Medium,
-    Low
-} Priority;
+#import "DownloadPriority.h"
 
 @interface PriorityQueue : NSObject
 
-@property (nonatomic) NSMutableArray *arrayHigh;
+- (void)addObject:(id)object;
 
-@property (nonatomic) NSMutableArray *arrayMedium;
+- (void)addObject:(id)object withPriority:(DownloadPriority)priority;
 
-@property (nonatomic) NSMutableArray *arrayLow;
+- (id)dequeue;
 
-- (void)addObject:(NSObject*)object withPriority:(Priority)priority;
+- (void)removeObject;
 
-- (NSObject*)getObjectFromQueue;
+- (NSInteger)count;
 
-- (NSObject*)objectForKey:(NSString*)key;
+- (void)setPriorityForObject:(id)object withPriority:(DownloadPriority)priority;
 
-- (void)removeObjectForKey:(NSString*)key;
+- (void)removeObject:(id)object withPriority:(DownloadPriority)priority;
 
-- (NSArray*)getAllObjectFromQueue;
-
-- (BOOL)isEmpty;
+//- (bool)isContainObject:(id)object;
 
 @end
